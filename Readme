@@ -1,0 +1,9 @@
+What are the 4 conditions for deadlock?
+
+The four necessary conditions for a deadlock situation to occur are
+1. mutual exclusion,
+2. hold and wait,
+3. no preemption,
+4. circular set.
+
+We can prevent a deadlock by preventing any one of these conditions.
