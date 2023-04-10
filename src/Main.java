@@ -5,6 +5,6 @@ public class Main {
         // 1. Main Thread
         // 2. Background (Daemon)
         ThreadDemo threadDemo = new ThreadDemo();
-        threadDemo.show();
+        threadDemo.show(); // main thread
     }
 }
