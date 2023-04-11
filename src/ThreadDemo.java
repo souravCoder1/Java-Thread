@@ -13,10 +13,5 @@ public class ThreadDemo { // current is main
         }
 
         System.out.println("File is ready to be scanned!!");
-
-//        Thread thread1 = new Thread(new DownloadFileTask());
-//        Thread thread2 = new Thread(new DownloadFileTask());
-//        Thread thread3 = new Thread(new DownloadFileTask());
-//        Thread thread4 = new Thread(new DownloadFileTask());
     }
 }
