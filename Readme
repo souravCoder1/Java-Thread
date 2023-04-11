@@ -1,0 +1,21 @@
+Q) In java multi-threading, a thread can be created by
+
+        1 Extending Thread class
+        2 Implementing Runnable interface
+        3 Using both(Y)
+        4 None
+
+Q) Which method is called internally by Thread start() method?
+
+        1 execute()
+        2 run() (Y)
+        3 launch()
+        4 main()
+
+Q) Which method must be implemented by a Java thread?
+
+        1 run() (Y)
+        2 execute()
+        3 start()
+        4 None
+
