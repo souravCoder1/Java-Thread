@@ -2,25 +2,21 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class DownloadFileTask implements Runnable {
+
+    DownloadStatus downloadStatus;
+    public DownloadFileTask(DownloadStatus downloadStatus) {
+        this.downloadStatus = downloadStatus;
+    }
+
     @Override
     public void run() {
-        //      long sec = (long) (Math.random() * 100);
+        
+        System.out.println("Downloading files...."+ Thread.currentThread().getName());
 
-        //      Random random = new Random();
-        //      long sec = random.nextLong(100);
-
-        long sec = ThreadLocalRandom.current().nextLong();
-
-        System.out.println("Downloading files...."+ Thread.currentThread().getName()); // 1
-
-        try {
-            System.out.println(sec);
-            Thread.sleep(sec); // approx  // 2
-        } catch (Exception e) {
-            System.out.println("Exception!!!!!");
-            e.printStackTrace();
+        for (int i = 0; i < 10000; i++) {
+            downloadStatus.incrementTotalByte();
         }
-
-        System.out.println("Download complete: "+ Thread.currentThread().getName()); // 3
+        
+        System.out.println("Download complete: "+ Thread.currentThread().getName()); 
     }
 }

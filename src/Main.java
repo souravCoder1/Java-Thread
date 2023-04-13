@@ -4,7 +4,9 @@ public class Main {
         System.out.println(Runtime.getRuntime().availableProcessors());
         // 1. Main Thread
         // 2. Background (Daemon)
+        DownloadStatus downloadStatus = new DownloadStatus();
         ThreadDemo threadDemo = new ThreadDemo();
-        threadDemo.show(); // main thread
+        threadDemo.show(downloadStatus); // main thread
+
     }
 }
