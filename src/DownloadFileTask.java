@@ -4,6 +4,11 @@ import java.util.concurrent.ThreadLocalRandom;
 public class DownloadFileTask implements Runnable {
 
     DownloadStatus downloadStatus;
+
+    public DownloadStatus getDownloadStatus() {
+        return downloadStatus;
+    }
+
     public DownloadFileTask(DownloadStatus downloadStatus) {
         this.downloadStatus = downloadStatus;
     }
