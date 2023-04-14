@@ -7,6 +7,21 @@ public class Main {
         DownloadStatus downloadStatus = new DownloadStatus();
         ThreadDemo threadDemo = new ThreadDemo();
         threadDemo.show(downloadStatus); // main thread
+        String s1= "Abc.";
+        System.out.println(s1.hashCode());
+        System.out.println(s1);
+        s1= s1.toUpperCase();
+        System.out.println(s1.hashCode());
+        System.out.println(s1);
+
+
+
+        Integer s2= 52;
+        System.out.println(s2.hashCode());
+
+        s2 = -52;
+        System.out.println(s2.hashCode());
+
 
     }
 }
