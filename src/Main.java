@@ -14,8 +14,6 @@ public class Main {
         System.out.println(s1.hashCode());
         System.out.println(s1);
 
-
-
         Integer s2= 52;
         System.out.println(s2.hashCode());
 
