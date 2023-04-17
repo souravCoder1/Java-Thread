@@ -35,8 +35,12 @@ public class ThreadDemo { // current is main
                         .map(t -> t.getDownloadStatus().getTotalMb())
                                 //.reduce(0, (a,b) -> a+b);
                                         .reduce(Integer::sum).get();
+        int statusMB = 0;
+        for(DownloadFileTask downloadFileTask : tasks) {
+            DownloadStatus downloadStatus = downloadFileTask.getDownloadStatus();
+            statusMB = statusMB + downloadStatus.getTotalMb();
+        }
 
-
-        System.out.println("Total size " + totalMB);
+        System.out.println("Total size " + totalMB + " " + statusMB);
     }
 }
