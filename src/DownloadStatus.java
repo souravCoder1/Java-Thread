@@ -4,18 +4,18 @@ import java.util.concurrent.locks.ReentrantLock;
 public class DownloadStatus {
 
     private int totalMb = 0;
-    Lock lockResouce = new ReentrantLock();
+    Lock lockResource = new ReentrantLock();
 
     public int getTotalMb() {
         return totalMb;
     }
 
     public void incrementTotalByte() { // shared resource
-        lockResouce.lock();
+        lockResource.lock();
         try {
             totalMb++; // 3 operation
         } finally {
-            lockResouce.unlock();
+            lockResource.unlock();
         }
         // 1. clone main memory to thread local memory
         // 2. update the value
