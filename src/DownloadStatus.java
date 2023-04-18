@@ -11,11 +11,8 @@ public class DownloadStatus {
     }
 
     public void incrementTotalByte() { // shared resource
-        lockResource.lock();
-        try {
+        synchronized (this) {
             totalMb++; // 3 operation
-        } finally {
-            lockResource.unlock();
         }
         // 1. clone main memory to thread local memory
         // 2. update the value
