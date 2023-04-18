@@ -7,3 +7,7 @@ The four necessary conditions for a deadlock situation to occur are
 4. circular set.
 
 We can prevent a deadlock by preventing any one of these conditions.
+
+Lock is a monitor which is used to guarantee that only 1 thread can execute at a time. // concurrency
+
+Join is used to wait for a thread to complete, before execution continues.
