@@ -13,11 +13,14 @@ public class DownloadStatus {
         return totalMb;
     }
 
-    // we have to make sure this method is executed only by a single thread at a time
-    public void incrementTotalByte() { // shared resource
-        synchronized (this) {
-            totalMb++; // 3 operation
-        }
+    // we have to make sure this method is executed only by a single thread at a time, throughput increases
+    // synchronized block is better than method label, why??
+
+    //
+    public synchronized void incrementTotalByte() { // shared resource
+//        synchronized (this) {
+//            totalMb++; // 3 operation
+//        }
         // 1. clone main memory to thread local memory
         // 2. update the value
         // 3. merge cpu to main memory
