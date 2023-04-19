@@ -22,11 +22,18 @@ public class DownloadStatus {
         synchronized (lock1) {
             totalMb++; // 3 operation
         }
-        totalMb++;
         // 1. clone main memory to thread local memory
         // 2. update the value
         // 3. merge cpu to main memory
     }
+    /*public void decrementTotalByte() { // shared resource
+        synchronized (lock1) {
+            totalMb--; // 3 operation
+        }
+        // 1. clone main memory to thread local memory
+        // 2. update the value
+        // 3. merge cpu to main memory
+    }*/
 
     public void calculateTotalDownloadedFiles() {
         synchronized (lock2) {
