@@ -13,7 +13,7 @@ public class DownloadStatus {
         return totalMb;
     }
 
-    // we have to make sure this method is executed only by a single thread at a time, throughput decreases 
+    // we have to make sure this method is executed only by a single thread at a time, throughput decreases
     // rule of thumb: synchronized block is better than method label, why?? use synchronized block when 100% necessary
 
     // time slicing algorithm
@@ -35,7 +35,7 @@ public class DownloadStatus {
         // 3. merge cpu to main memory
     }
 
-    public void showTotalDownloadedFiles() {
+    public void showTotalFiles() { // shared resource
         synchronized (this) {
             totalFiles++; // 3 operation
         }
