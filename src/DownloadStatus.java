@@ -1,6 +1,3 @@
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
 public class DownloadStatus {
     private int totalMb = 0;
     private int totalFiles = 0;
@@ -35,7 +32,7 @@ public class DownloadStatus {
         // 3. merge cpu to main memory
     }
 
-    public void showTotalFiles() { // shared resource
+    public void showTotalDownloadedFiles() { // shared resource
         synchronized (this) {
             totalFiles++; // 3 operation
         }
