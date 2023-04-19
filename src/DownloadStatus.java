@@ -35,7 +35,7 @@ public class DownloadStatus {
         // 3. merge cpu to main memory
     }
 
-    public void showTotalFiles() { // shared resource
+    public void showTotalDownloadedFiles() {
         synchronized (this) {
             totalFiles++; // 3 operation
         }
