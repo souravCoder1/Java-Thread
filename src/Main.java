@@ -7,6 +7,5 @@ public class Main {
         DownloadStatus downloadStatus = new DownloadStatus();
         ThreadDemo threadDemo = new ThreadDemo();
         threadDemo.show(downloadStatus); // main thread
-
     }
 }

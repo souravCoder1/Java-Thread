@@ -1,6 +1,18 @@
 public class DownloadStatus {
-
+    private boolean isDone;
     private int totalMb = 0;
+
+    public boolean isDone() {
+        return isDone;
+    }
+
+    public void done() {
+        isDone = true;
+    }
+
+    public void setTotalMb(int totalMb) {
+        this.totalMb = totalMb;
+    }
 
     public int getTotalMb() {
         return totalMb;
