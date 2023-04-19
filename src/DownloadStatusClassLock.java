@@ -1,7 +1,4 @@
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
-public class DownloadStatus {
+public class DownloadStatusClassLock {
     private int totalMb = 0;
     private int totalFiles = 0;
 
@@ -17,17 +14,16 @@ public class DownloadStatus {
     // synchronized block is better than method label, why??
 
     //
-    public synchronized void incrementTotalByte() { // shared resource
-//        synchronized (this) {
+    public static synchronized void incrementTotalByte() { // shared resource
+//        synchronized (DownloadStatusClassLock.class) {
 //            totalMb++; // 3 operation
 //        }
-        totalMb++;
         // 1. clone main memory to thread local memory
         // 2. update the value
         // 3. merge cpu to main memory
     }
     public void decrementTotalByte() { // shared resource
-        synchronized (this) {
+        synchronized (DownloadStatusClassLock.class) {
             totalMb--; // 3 operation
         }
         // 1. clone main memory to thread local memory
@@ -36,7 +32,7 @@ public class DownloadStatus {
     }
 
     public void showTotalFiles() { // shared resource
-        synchronized (this) {
+        synchronized (DownloadStatusClassLock.class) {
             totalFiles++; // 3 operation
         }
     }
