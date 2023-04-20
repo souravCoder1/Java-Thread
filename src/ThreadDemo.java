@@ -12,11 +12,22 @@ public class ThreadDemo { // current is main
 //            }
 //        });
         Thread thread2 = new Thread(() -> {
+//            try {
+//                thread1.join();
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
             while (!downloadStatus.isDone()) {}
             System.out.println(downloadStatus.getTotalMb());
         });
 
-        thread1.start();
+        thread1.start(); // note: Thread 1 had to flag 'done' true for thread 2 to finish execution and print totalMb. Thread 2 did not
+        // wait for thread 1 to complete and due to done being flagged as false the loop inside thread 2 runs indefinitely.
+//        try {
+//            thread1.join();
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         thread2.start();
 
     }

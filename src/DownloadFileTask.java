@@ -18,7 +18,7 @@ public class DownloadFileTask implements Runnable {
         }
 
         downloadStatus.done();
-        
+
         System.out.println("Download complete: "+ Thread.currentThread().getName()); 
     }
 }
