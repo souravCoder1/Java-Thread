@@ -2,8 +2,10 @@ public class DownloadStatus {
     private boolean isDone = false;
     private int totalMb = 0;
 
-    public synchronized boolean isDone() {
-        return isDone;
+    public boolean isDone() {
+        synchronized (this) {
+            return isDone;
+        }
     }
 
     public void done() {
@@ -18,8 +20,11 @@ public class DownloadStatus {
         return totalMb;
     }
 
-    public synchronized void incrementTotalByte() { // shared resource
-        totalMb++; // 3 operations
+    public void incrementTotalByte() { // shared resource
+
+        synchronized (this) {
+            totalMb++;
+        }// 3 operations
         // 1. clone main memory to thread local memory
         // 2. update the value
         // 3. merge cpu to main memory

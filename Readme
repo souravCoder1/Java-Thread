@@ -7,6 +7,9 @@ The four necessary conditions for a deadlock situation to occur are
 4. circular set.
 
 We can prevent a deadlock by preventing any one of these conditions.
+issue: thread2 was not waiting for thread1 to finish executing thus not ending loop in thread2 as done remained false.
+main issue was of race condition. thread2 finished executing before thread1 and the program ran indefinitely not
+printing totalMb at the end.
 
 note: Thread 1 had to flag 'done' true for thread 2 to finish execution and print totalMb. Thread 2 did not
 wait for thread 1 to complete and due to done being flagged as false the loop inside thread 2 runs indefinitely.
