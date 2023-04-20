@@ -16,7 +16,9 @@ public class DownloadFileTask implements Runnable {
         for (int i = 0; i < 1000000; i++) {
             downloadStatus.incrementTotalByte();
         }
+
         downloadStatus.done();
+        
         System.out.println("Download complete: "+ Thread.currentThread().getName()); 
     }
 }
