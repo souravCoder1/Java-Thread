@@ -13,3 +13,7 @@ printing totalMb at the end.
 
 note: Thread 1 had to flag 'done' true for thread 2 to finish execution and print totalMb. Thread 2 did not
 wait for thread 1 to complete and due to done being flagged as false the loop inside thread 2 runs indefinitely.
+
+Volatile: boolean isDone changed to volatile writes the value changed by the thread1 in memory and thread2 accesses
+the same instance of the variable rather than a different instance. the updated value is true which causes the loop
+in thread2 to finish and behave normally.
