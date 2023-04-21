@@ -14,6 +14,7 @@ public class DownloadStatus {
         lockResouce.lock();
         try {
             totalMb++; // 3 operation
+            // ........
         } finally {
             lockResouce.unlock();
         }
