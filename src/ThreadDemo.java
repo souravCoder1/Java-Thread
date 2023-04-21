@@ -13,7 +13,7 @@ public class ThreadDemo { // current is main
 //        });
         Thread thread2 = new Thread(() -> {
             while (!downloadStatus.isDone()) {
-                synchronized (downloadStatus) {
+                synchronized (downloadStatus) {  // IllegalMonitorStateException – if the current thread is not the owner of the object's monitor
                     //System.out.println(1);
                     try {
                         downloadStatus.wait();
