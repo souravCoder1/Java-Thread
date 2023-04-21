@@ -1,9 +1,9 @@
 public class DownloadStatus {
-    private volatile boolean isDone = false;
+    private boolean isDone = false;
     private int totalMb = 0;
 
     public boolean isDone() {
-            return isDone;
+        return isDone;
     }
 
     public void done() {

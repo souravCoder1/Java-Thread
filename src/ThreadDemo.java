@@ -12,12 +12,16 @@ public class ThreadDemo { // current is main
 //            }
 //        });
         Thread thread2 = new Thread(() -> {
-//            try {
-//                thread1.join();
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-            while (!downloadStatus.isDone()) {}
+            while (!downloadStatus.isDone()) {
+                synchronized (downloadStatus) {
+                    //System.out.println(1);
+                    try {
+                        downloadStatus.wait();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
             System.out.println(downloadStatus.getTotalMb());
         });
 
