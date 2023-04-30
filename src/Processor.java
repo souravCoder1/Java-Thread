@@ -24,6 +24,11 @@ public class Processor {
                     value++;
                     notify(); // if any other thread is waiting then it will wake up that thread
                 }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
@@ -35,12 +40,13 @@ public class Processor {
                     System.out.println("Waiting to adding items.....");
                     wait();
                 } else {
-                    System.out.println("Consuming :" + value);
+                    System.out.println("Consuming :" + list.get(list.size() - 1));
                     list.remove(list.size() - 1);
                     notify();
                     //...............
                     System.out.println("abc");
                 }
+                Thread.sleep(1000);
             }
         }
     }
