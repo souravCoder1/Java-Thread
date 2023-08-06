@@ -1,10 +1,22 @@
-public class Main {
-    static int count = 0;
+public class AppLock {
+    static int count1 = 0;
+    static int count2 = 0;
 
-    // we have to make sure this method is executed only by a single thread at a given time
-    public static synchronized void increment() {
-        count++;
-        System.out.println(Thread.currentThread().getName() +"   "+ count);
+    private static final Object lock1 = new Object();
+    private static final Object lock2 = new Object();
+
+    public static void increment1() {
+        synchronized (lock1) {
+            count1++;
+            System.out.println(Thread.currentThread().getName() + "   " + count1);
+        }
+    }
+
+    public static void increment2() {
+        synchronized (lock2) {
+            count2++;
+            System.out.println(Thread.currentThread().getName() + "   " + count2);
+        }
     }
 
     public static void main(String[] args) {
@@ -17,7 +29,7 @@ public class Main {
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
-                    increment();
+                    increment1();
                 }
             }
         });
@@ -31,7 +43,7 @@ public class Main {
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
-                    increment();
+                    increment2();
                 }
             }
         });
@@ -46,6 +58,6 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-        System.out.println("Total Counter : " + count);
-    }
+        System.out.println("Total Counter 1 : " + count1);
+        System.out.println("Total Counter 2 : " + count2);    }
 }
