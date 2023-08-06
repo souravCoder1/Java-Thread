@@ -31,7 +31,7 @@ public class AppThreadWait {
         t1.start();
         t2.start();
 
-        //  Wait till the tread to finish
+        //  Wait till the tread 1 to finish
 
         try {
             t1.join();

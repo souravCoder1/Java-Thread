@@ -22,7 +22,7 @@ public class AppThreadUsingRunnable {
         // achieve multithreading
         Thread t1 = new Thread(new RunnerTR1());
         //Thread t2 = new Thread(new RunnerTR2());
-        Thread t2 = new Thread(new Runnable() {  //Anonymous inner class
+        Thread t2 = new Thread(new Runnable() {  //Anonymous class
             public void run() {
                 for (int i = 0; i < 10; i++) {
                     System.out.println("Runner2: "+i);
