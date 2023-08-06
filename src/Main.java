@@ -1,6 +1,7 @@
 public class Main {
     static int count = 0;
 
+    // we have to make sure this method is called only by a single thread at a given time
     public static synchronized void increment() {
         count++;
         System.out.println(Thread.currentThread().getName() +"   "+ count);
