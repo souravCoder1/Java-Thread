@@ -1,21 +1,18 @@
-Q) In java multi-threading, a thread can be created by
-
-        1 Extending Thread class
-        2 Implementing Runnable interface
-        3 Using both(Y)
-        4 None
-
-Q) Which method is called internally by Thread start() method?
-
-        1 execute()
-        2 run() (Y)
-        3 launch()
-        4 main()
-
-Q) Which method must be implemented by a Java thread?
-
-        1 run() (Y)
-        2 execute()
-        3 start()
-        4 None
-
+	  1.) ExecutorService es = Executors.newCachedThreadPool();
+	   	- going to return an executorService that can dynamically
+	   		reuse threads
+	 		- before starting a job -> it going to check whether there are any threads that
+	 			finished the job...reuse them
+	 		- if there are no waiting threads -> it is going to create another one 
+	 		- good for the processor ... effective solution !!!
+	 
+	 	2.) ExecutorService es = Executors.newFixedThreadPool(N);
+	 		- maximize the number of threads
+	 		- if we want to start a job -> if all the threads are busy, we have to wait for one
+	 			to terminate
+	 
+	 	3.) ExecutorService es = Executors.newSingleThreadExecutor();
+	 		It uses a single thread for the job
+	 
+	 		execute() -> runnable + callable
+	 		submit() -> runnable
